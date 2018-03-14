@@ -9,13 +9,13 @@ public class TestingMain {
         Integer sum = calc.add(5,6);
         Integer difference = calc.subtract(10,3);
 
-        if(sum.equals(calc.add(5,6))) {
+        if(sum.equals(11)) {
             System.out.println("Add test is ok!");
         } else {
             System.out.println("Error!");
         }
 
-        if(difference.equals(calc.subtract(10,3))) {
+        if(difference.equals(7)) {
             System.out.println("Subtract test is ok!");
         } else {
             System.out.println("Error");
