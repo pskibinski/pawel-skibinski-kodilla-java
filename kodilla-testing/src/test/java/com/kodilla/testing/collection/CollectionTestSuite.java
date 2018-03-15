@@ -35,7 +35,8 @@ public class CollectionTestSuite {
         //When
         ArrayList<Integer> list = ext.exterminator(emptyList);
         //Then
-        Assert.assertEquals(true, list.isEmpty());
+        Assert.assertTrue(list.isEmpty());
+
     }
 
     @Test
@@ -44,12 +45,14 @@ public class CollectionTestSuite {
         ArrayList<Integer> numbers = new ArrayList<>();
         OddNumbersExterminator ext = new OddNumbersExterminator();
         //When
-        for(int i=1; i<=100; i++) {
+        for (int i = 1; i <= 100; i++) {
             numbers.add(i);
         }
         ArrayList<Integer> list = ext.exterminator(numbers);
         //Then
-        for(int i : list)
-        Assert.assertEquals(true, i%2==0);
+        for (int i : list) {
+            Assert.assertEquals(0, i % 2);
+        }
+        Assert.assertEquals(50, list.size());
     }
 }
