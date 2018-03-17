@@ -61,5 +61,6 @@ public class ShapeCollectorTestSuite {
         //Then
         Assert.assertEquals(square, retrievedFigure);
         Assert.assertEquals("square", square.getShapeName());
+        Assert.assertEquals(36, square.getField(), 0);
     }
 }
