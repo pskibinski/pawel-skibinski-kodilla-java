@@ -159,7 +159,7 @@ public class BoardTestSuite {
                 .filter(inProgressTasks::contains)
                 .flatMap(l -> l.getTasks().stream())
                 .mapToLong(t -> LocalDate.now().toEpochDay() - t.getCreated().toEpochDay())
-                .reduce(0, (s,c) -> s=s+c);
+                .sum();
 
         double avg = days/tasks;
 
