@@ -161,18 +161,11 @@ public class BoardTestSuite {
                 .mapToLong(t -> LocalDate.now().toEpochDay() - t.getCreated().toEpochDay())
                 .sum();
 
-        double avg = days/tasks;
+        double task = (double) tasks;
+
+        double avg = days / task;
 
         //Then
-        Assert.assertEquals(10, avg, 0);
-
-
-
-
-
-
-
-
-
+        Assert.assertEquals(10.0, avg, 0);
     }
 }
