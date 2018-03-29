@@ -2,4 +2,7 @@ include 'kodilla-testing'
 include 'kodilla-stream'
 include 'dfgd'
 include 'qwer'
+include 'kodilla-rps'
+include 'kodilla-rps'
+include 'kodilla-exception'
 

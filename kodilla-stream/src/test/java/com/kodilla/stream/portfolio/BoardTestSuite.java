@@ -4,11 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.locks.Lock;
-import java.util.stream.Collectors;
+
 
 import static java.util.stream.Collectors.toList;
 
@@ -167,5 +165,25 @@ public class BoardTestSuite {
 
         //Then
         Assert.assertEquals(10.0, avg, 0);
+    }
+
+    @Test
+    public void testAddTaskListAverageWorkingOnTaskWithAverage () {
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        double average = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(l -> l.getTasks().stream())
+                .mapToLong(t -> LocalDate.now().toEpochDay() - t.getCreated().toEpochDay())
+                .average()
+                .getAsDouble();
+
+        //Then
+        Assert.assertEquals(10, average, 0);
+
     }
 }
