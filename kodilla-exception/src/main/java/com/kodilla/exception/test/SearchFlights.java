@@ -5,23 +5,27 @@ import java.util.Map;
 
 public class SearchFlights {
 
-    public boolean findFlight(Flight flight) throws RouteNotFoundException {
+    public void findFlight(Flight flight) throws RouteNotFoundException {
 
-        Map<String, Boolean> airports = new HashMap<>();
+        Map<Flight, Boolean> airports = new HashMap<>();
 
-        String departure = flight.getDepartureAirport();
-        String arrival = flight.getArrivalAirport();
+        Flight flight1 = new Flight("London Heathrow", "Paris Charles de Gaulle");
+        Flight flight2 = new Flight("Amsterdam", "Frankfurt");
+        Flight flight3 = new Flight("Madrid Barajas", "London Heathrow");
+        Flight flight4 = new Flight("Barcelona", "Munich");
+        Flight flight5 = new Flight("Barcelona", "London Heathrow");
 
-        airports.put("London Heathrow", true);
-        airports.put("Paris Charles de Gaulle", false);
-        airports.put("Amsterdam", true);
-        airports.put("Frankfurt", false);
-        airports.put("Madrid Barajas", true);
+        airports.put(flight1, true);
+        airports.put(flight2, true);
+        airports.put(flight3, true);
+        airports.put(flight4, false);
+        airports.put(flight5, false);
 
-        if(!airports.containsKey(departure) || !airports.containsKey(arrival)) {
-            throw new RouteNotFoundException();
-        }
+       long contains = airports.entrySet().stream().filter(a -> a.getKey().equals(flight)).count();
 
-        return true;
+       if(contains < 1) {
+           throw new RouteNotFoundException();
+       }
+
     }
 }

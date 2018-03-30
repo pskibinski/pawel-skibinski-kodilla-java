@@ -5,14 +5,10 @@ public class FlightRunner {
 
         SearchFlights searchFlights = new SearchFlights();
 
-        Flight flight1 = new Flight("London Heathrow", "Paris Charles de Gaulle");
-        Flight flight2 = new Flight("Amsterdam", "Frankfurt");
-        Flight flight3 = new Flight("Madrid Barajas", "London Heathrow");
-        Flight flight4 = new Flight("Barcelona", "Munich");
-        Flight flight5 = new Flight("Barcelona", "London Heathrow");
+        Flight flight = new Flight("London Gatwick", "Rome Fiumicino");
 
         try {
-            searchFlights.findFlight(flight5);
+            searchFlights.findFlight(flight);
         } catch (RouteNotFoundException e) {
             System.out.println("We are afraid but the flight is not in our base.");
         }
