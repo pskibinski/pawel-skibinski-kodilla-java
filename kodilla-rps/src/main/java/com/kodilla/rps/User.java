@@ -3,17 +3,14 @@ package com.kodilla.rps;
 import java.util.Scanner;
 
 public class User {
+    Scanner scanner = new Scanner(System.in);
+    String userName = scanner.nextLine();
 
-    private Scanner scanner = new Scanner(System.in);
-    private String name = scanner.nextLine();
-
-    public String getName() {
-        return name;
+    public static void greetings() {
+        System.out.println("Hello! What is your name?");
     }
 
-    public int getMove() {
-
-        Moves[] move = moves
+    public String getUserName() {
+        return userName;
     }
 }
-
