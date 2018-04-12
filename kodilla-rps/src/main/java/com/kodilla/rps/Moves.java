@@ -10,14 +10,14 @@ public class Moves {
         Scanner scanner = new Scanner(System.in);
 
         while(true) {
-            int number = scanner.nextInt();
+            String number = scanner.nextLine();
             switch(number) {
-                case 1: return Shapes.ROCK;
-                case 2: return Shapes.PAPER;
-                case 3: return Shapes.SCISSORS;
-                case 4: return Shapes.LIZARD;
-                case 5: return Shapes.SPOCK;
-                case 6: return Shapes.EXIT;
+                case "1": return Shapes.ROCK;
+                case "2": return Shapes.PAPER;
+                case "3": return Shapes.SCISSORS;
+                case "4": return Shapes.LIZARD;
+                case "5": return Shapes.SPOCK;
+                case "6": return Shapes.EXIT;
                 default:
                     System.out.println("Wrong selection. Choose one more time.");
             }

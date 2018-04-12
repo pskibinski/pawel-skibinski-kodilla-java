@@ -14,25 +14,30 @@ public class Game {
             Shapes userShape = Moves.userMove();
             Shapes cpuShape = Moves.cpuMove();
 
-            int n = win.winCondition(userShape, cpuShape);
-            System.out.println("Your choice is: " + userShape + " Computer choice is: " + cpuShape);
+            String n = win.winCondition(userShape, cpuShape);
 
-            switch (n) {
-                case 0:
-                    System.out.println("It is tie.");
-                    break;
-                case 1:
-                    System.out.println(name + " wins.");
-                    userScore++;
-                    break;
-                case -1:
-                    System.out.println("Computer wins.");
-                    cpuScore++;
-                    break;
-                case -2:
-                    return false;
-            }
-            System.out.println(name + " " + userScore + " : " + cpuScore + " Computer" + "\n");
+                if(n != "-2") {
+
+                    System.out.println("Your choice is: " + userShape + " Computer choice is: " + cpuShape);
+
+                    switch (n) {
+                        case "0":
+                            System.out.println("It is tie.");
+                            break;
+                        case "1":
+                            System.out.println(name + " wins.");
+                            userScore++;
+                            break;
+                        case "-1":
+                            System.out.println("Computer wins.");
+                            cpuScore++;
+                            break;
+                    }
+                } else {
+                        System.out.println("Bye!");
+                        return false;
+                }
+                System.out.println(name + " " + userScore + " : " + cpuScore + " Computer" + "\n");
         }
     }
 }
