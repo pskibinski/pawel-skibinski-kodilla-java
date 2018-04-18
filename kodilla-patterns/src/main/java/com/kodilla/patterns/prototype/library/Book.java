@@ -2,7 +2,7 @@ package com.kodilla.patterns.prototype.library;
 
 import java.time.LocalDate;
 
-public final class Book {
+public final class Book extends Prototype {
     final String title;
     final String author;
     final LocalDate publicationDate;
@@ -28,5 +28,9 @@ public final class Book {
     @Override
     public String toString() {
         return "    Book: " + getTitle() + " " + getAuthor() + " " + getPublicationDate() + "\n";
+    }
+
+    public Book shallowCopy() throws CloneNotSupportedException{
+        return (Book)super.clone();
     }
 }
