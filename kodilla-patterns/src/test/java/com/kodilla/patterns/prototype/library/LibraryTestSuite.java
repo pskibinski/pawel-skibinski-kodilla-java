@@ -1,6 +1,5 @@
 package com.kodilla.patterns.prototype.library;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
