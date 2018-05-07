@@ -5,7 +5,20 @@ import com.kodilla.hibernate.tasklists.TaskList;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
-
+@NamedQueries({
+        @NamedQuery(
+                name = "Task.retrieveTasksWithDurationLongerThan",
+                query = "FROM Task WHERE duration > :DURATION"
+        ),
+        @NamedQuery(
+                name = "Task.retrieveLongTasks",
+                query = "FROM Task WHERE duration > 10"
+        ),
+        @NamedQuery(
+                name = "Task.retrieveShortTasks",
+                query = "FROM Task WHERE duration <= 10"
+        )
+})
 @Entity
 @Table(name = "TASKS")
 public class Task {
