@@ -7,13 +7,13 @@ import java.util.List;
 public class SudokuElement {
 
     private int value = EMPTY;
-    public static int EMPTY = -1;
-    private List<Integer> availableNumbers = new ArrayList<>();
+    public static int EMPTY = 0;
+    public List<Integer> availableNumbers = new ArrayList<>();
 
 
     public SudokuElement() {
-        for(int i =0; i<=8; i++) {
-            availableNumbers.add(0);
+        for(int i =1; i<=9; i++) {
+            availableNumbers.add(i);
         }
     }
 
@@ -23,6 +23,10 @@ public class SudokuElement {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    public List<Integer> getAvailableNumbers() {
+        return availableNumbers;
     }
 
     @Override

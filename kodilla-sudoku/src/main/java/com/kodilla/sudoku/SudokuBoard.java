@@ -1,8 +1,6 @@
 package com.kodilla.sudoku;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class SudokuBoard {
 
@@ -14,28 +12,9 @@ public class SudokuBoard {
         }
     }
 
-    public void addNumber() {
-        Scanner scanner = new Scanner(System.in);
-        String cord = scanner.nextLine();
-        int row = Integer.parseInt(cord.substring(0,1));
-        int col = Integer.parseInt(cord.substring(1,2));
-        int n = Integer.parseInt(cord.substring(2,3));
-        SudokuElement se = new SudokuElement();
-        se.setValue(n);
-        sudokuRow.get(row).getCol().add(col, se);
-        sudokuRow.get(row).getCol().remove(col + 1);
+    public SudokuElement getElement(int col, int row) {
+        return sudokuRow.get(row).getCol().get(col);
     }
-
-    public void resolveSudoku() {
-        int counter = 0;
-            for(SudokuElement e : sudokuRow.get(counter).getCol()) {
-                if(e.getValue() != e.EMPTY) {
-
-                }
-            }
-            counter++;
-    }
-
 
     @Override
     public String toString() {
