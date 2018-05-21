@@ -10,13 +10,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class InvoiceDaoTestSuite {
     @Autowired
     private InvoiceDao invoiceDao;
+    @Autowired
+    private ProductDao productDao;
+    @Autowired
+    private ItemDao itemDao;
+
 
     @Test
     public void testInvoiceDaoSave() {
@@ -40,19 +47,30 @@ public class InvoiceDaoTestSuite {
         invoice.getItems().add(item1);
         invoice.getItems().add(item2);
         invoice.getItems().add(item3);
+        invoice.getItems().add(item4);
         item1.setInvoice(invoice);
         item2.setInvoice(invoice);
         item3.setInvoice(invoice);
+        item4.setInvoice(invoice);
 
         //When
+        productDao.save(product1);
+        productDao.save(product2);
+        productDao.save(product3);
         invoiceDao.save(invoice);
-        int id = invoice.getId();
+        itemDao.save(item1);
+        itemDao.save(item2);
+        itemDao.save(item3);
+        itemDao.save(item4);
+
 
         //Then
-        Assert.assertNotEquals(0, id);
+        Item temp = itemDao.findOne(item1.getId());
+        Assert.assertEquals(item1.getValue(), temp.getValue());
 
         //CleanUp
-        invoiceDao.delete(id);
+        itemDao.deleteAll();
+        productDao.deleteAll();
+        invoiceDao.deleteAll();
     }
-
 }

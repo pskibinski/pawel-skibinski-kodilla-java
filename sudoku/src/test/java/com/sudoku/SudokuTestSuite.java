@@ -1,8 +1,8 @@
-package com.kodilla.sudoku;
+package com.sudoku;
 
 import org.junit.Test;
 
-public class sudokuTestSuite {
+public class SudokuTestSuite {
 
     public void setBoard(Board board) {
         board.getElement(0, 3).setValue(8);
@@ -50,4 +50,5 @@ public class sudokuTestSuite {
 
         //Then
     }
+
 }

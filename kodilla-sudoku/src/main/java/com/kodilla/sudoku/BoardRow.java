@@ -3,24 +3,23 @@ package com.kodilla.sudoku;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SudokuRow {
+public class BoardRow {
+    private List<Element> boardCols = new ArrayList<>();
 
-    private List<SudokuElement> sudokuCol = new ArrayList<>();
-
-    public SudokuRow() {
+    public BoardRow() {
         for(int i = 0; i<9; i++) {
-            sudokuCol.add(new SudokuElement());
+            boardCols.add(new Element());
         }
     }
 
-    public List<SudokuElement> getCol() {
-        return sudokuCol;
+    public List<Element> getCol() {
+        return boardCols;
     }
 
     @Override
     public String toString() {
         String s = "|";
-        for(SudokuElement e : sudokuCol) {
+        for(Element e : boardCols) {
             s += e.toString() + "|";
         }
         return s;
