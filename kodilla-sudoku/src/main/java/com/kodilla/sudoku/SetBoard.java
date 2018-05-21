@@ -57,8 +57,14 @@ public class SetBoard {
                 }
                 System.out.println(board);
             }
-        }catch(NumberFormatException e){
-                    System.out.println("You have to type number (RowColValue)");
+        }catch(Exception e){
+            if(e instanceof NumberFormatException) {
+                System.out.println("You have to type number (RowColValue)");
+            } else if(e instanceof ArrayIndexOutOfBoundsException) {
+                System.out.println("Row and Col must be greater than 0!");
+            } else {
+                throw e;
+            }
         }
     }
 }
