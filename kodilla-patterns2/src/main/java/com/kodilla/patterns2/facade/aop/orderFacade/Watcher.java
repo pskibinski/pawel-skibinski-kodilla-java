@@ -1,4 +1,4 @@
-package com.kodilla.patterns2.facade.dao.orderFacade;
+package com.kodilla.patterns2.facade.aop.orderFacade;
 
 import com.kodilla.patterns2.facade.api.OrderDto;
 import org.aspectj.lang.ProceedingJoinPoint;
