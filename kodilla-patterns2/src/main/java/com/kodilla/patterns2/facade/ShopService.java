@@ -23,7 +23,7 @@ public class ShopService {
                     .mapToInt(o -> o.getOrderId().intValue())
                     .max().orElse(0);
             orders.add(new Order(maxOrder + 1, userId, productService));
-            return maxOrder;
+            return maxOrder + 1;
         } else {
             return -1L;
         }

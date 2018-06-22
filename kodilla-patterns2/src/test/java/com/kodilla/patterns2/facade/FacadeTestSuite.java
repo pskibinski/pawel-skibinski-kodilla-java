@@ -20,7 +20,7 @@ public class FacadeTestSuite {
     private ShopService shopService;
 
     @Autowired
-    OrderFacade orderFacade;
+    private OrderFacade orderFacade;
 
     @Test
     public void testShopServiceSubmitOrder() {
