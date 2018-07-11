@@ -5,6 +5,7 @@ import com.kodilla.exception.io.FileReaderException;
 import com.kodilla.exception.io.FileReaderWithoutHandling;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class ExceptionModuleRunner {
 
@@ -17,5 +18,6 @@ public class ExceptionModuleRunner {
         } catch(IOException e) {
             System.out.println("Problem while reading a file.");
         }
+
     }
 }
